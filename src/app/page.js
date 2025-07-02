@@ -1,8 +1,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import ServicesSection from "./componets/ServicesSection";
 
 export default function Home() {
   return (
-   <h1 className="text-4xl">Hello</h1>
+   <ServicesSection/>
   );
 }

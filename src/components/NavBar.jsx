@@ -1,6 +1,32 @@
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
-
-export default function navbar() {
+import { MdOutlineShoppingBag } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
+export default function NavBar() {
+  const navMenu = () => {
+    return(
+      <>
+      <div className='flex gap-2'>
+        <li>
+          <Link href='/'>Home</Link>
+        </li>
+        <li>
+          <Link href='/about'>About</Link>
+        </li>
+        <li>
+          <Link href='/services'>Services</Link>
+        </li>
+        <li>
+          <Link href='/blogs'>Blogs</Link>
+        </li>
+        <li>
+          <Link href='/contacts'>Contacts</Link>
+        </li>
+      </div>
+      </>
+    )
+  }
   return (
     <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -22,36 +48,22 @@ export default function navbar() {
       <ul
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
+        {navMenu()}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <Link href={'/'} className=" text-xl">
+      <Image src={'/assets/logo.svg'} width={107} height={87} alt='logo' />
+    </Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
+    {navMenu()}
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end gap-2">
+    <MdOutlineShoppingBag className='text-2xl'/>
+    <CiSearch className='text-2xl'/>
+  <button className="btn btn-outline btn-outline btn-secondary">Appointment</button>
   </div>
 </div>
   )
